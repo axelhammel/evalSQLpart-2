@@ -1,0 +1,60 @@
+/*SELECT CompanyName, ContactName, ContactTitle, Phone
+FROM Customers
+WHERE Customers.Country='France';*/
+
+/*SELECT ProductName, UnitPrice
+FROM Products
+JOIN Suppliers
+ON Products.SupplierID=Suppliers.SupplierID
+WHERE CompanyName='Exotic Liquids'
+GROUP BY ProductName;*/
+
+/*SELECT CompanyName, ProductID
+FROM Products
+JOIN Suppliers
+WHERE Suppliers.Country='France'
+GROUP BY CompanyName
+ORDER BY CompanyName DESC;*/
+
+/*SELECT CompanyName, COUNT(ShipVia)
+FROM Customers
+JOIN Orders
+ON Customers.CustomerID=Orders.CustomerID
+WHERE Customers.Country='France'
+GROUP BY CompanyName
+HAVING COUNT(ShipVia) > 10;*/
+
+/*SELECT customers.CompanyName, SUM(UnitPrice*Quantity) AS CA, customers.Country
+FROM customers
+JOIN `order details`
+WHERE UnitPrice*Quantity > 30.000
+GROUP BY Customers.Country;*/
+
+/*SELECT customers.Country, suppliers.CompanyName
+FROM customers
+JOIN suppliers
+WHERE suppliers.CompanyName='Exotic Liquids'
+GROUP BY customers.Country;*/
+
+/*SELECT SUM(UnitPrice*Quantity) AS Montant_Ventes, OrderDate
+FROM `order details` AS OD
+JOIN orders
+ON OD.OrderID= orders.OrderID
+WHERE YEAR(Orderdate) = "1997";*/
+
+
+/*SELECT SUM(UnitPrice*Quantity) AS Montant_Ventes, MONTH(Orderdate) AS mois
+FROM `order details` AS OD
+JOIN orders
+ON OD.OrderID= orders.OrderID
+WHERE YEAR(Orderdate) = "1997"
+GROUP BY mois;*/
+
+/*SELECT MAX(Orderdate) AS Date_dernière_commande
+FROM orders
+JOIN customers
+ON customers.CustomerID=orders.CustomerID
+WHERE customers.CompanyName = 'Du monde entier';*/
+
+/*SELECT CONVERT(AVG(DATEDIFF(ShippedDate,OrderDate)),INTEGER) AS "délai moyen de livraison en jours"
+FROM orders*/
